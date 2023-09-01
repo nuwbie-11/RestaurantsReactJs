@@ -1,0 +1,21 @@
+.star-rating {
+    font-size: 18px;
+    display: inline-block;
+    text-align: center;
+    /* margin: 10px; */
+  }
+  
+  .stars-container {
+    display: inline-block;
+    /* margin-left: 10px; */
+    cursor: pointer;
+  }
+  
+  .star {
+    color: gray;
+  }
+  
+  .filled {
+    color: #51414F;
+  }
+  
