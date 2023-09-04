@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import { useSearchParams } from 'react-router-dom';
 
-import RestaurantList from "./restaurantList";
-import Categories from "./categories";
+import RestaurantList from "./RestaurantsList";
+import Categories from "./Categories";
 
 
 
@@ -15,6 +15,7 @@ class Main extends Component {
         super(props);
 
         this.state={
+            param : this.props.params,
             isFiltered: false,
             data: null,
             priceOptions:{
@@ -29,17 +30,42 @@ class Main extends Component {
             }
         };
     }
-    Params(){
-        const params = this.props.params;
+    Params(){}
 
-        
+    async sendQuery(){
+        try {
+            const uri = `https://restaurant-api.dicoding.dev/search?q=${this.state.params['cate']}`;
+            const response = await fetch(uri);
+            const jsonData = await response.json();
+            const fixedData = jsonData["restaurants"];
+         
+            this.setData(fixedData);
+      
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
     }
-
     
+    componentDidUpdate(prevProps, prevState) {
+        // Check if specific props or state values have changed
+        if (this.props.params !== prevProps.params) {
+         
+        //   console.log(this.props.params);
+          this.setState({params:this.props.params})
+        }
+    
+        if (this.state.params !== prevState.params) {
+          // Perform some action based on state changes
+        //   console.log(this.state.params);
+            this.sendQuery()
+            this.forceUpdate();
+        }
+      }
 
     componentDidMount(){
         this.timerId = setTimeout(() => {
             this.fetchData();
+            
         }, 20);
     }
 
@@ -50,6 +76,7 @@ class Main extends Component {
 
     async fetchData(){
         try {
+            
             const uri = "https://restaurant-api.dicoding.dev/list";
             const response = await fetch(uri);
             const jsonData = await response.json();
@@ -68,7 +95,6 @@ class Main extends Component {
           temp = temp.concat([props[index]["id"]]);
         }
         this.setState({ data: temp });
-    
       };
 
     mainPage(){
@@ -91,7 +117,8 @@ class Main extends Component {
               <Dropdowns options={this.state.priceOptions} default={this.state.defaultPriceOptions} id='price-option' from='price'/>
               <Categories />
             </div>
-              <RestaurantList data={this.state.data}/>
+              {/* {console.log(this.state.params)} */}
+              <RestaurantList data={this.state.data} customParam={this.state.params} />
               </div>
         )
     }

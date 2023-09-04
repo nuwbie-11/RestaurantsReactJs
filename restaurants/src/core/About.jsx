@@ -1,6 +1,6 @@
 import React,{Component} from "react"
 import { useLocation } from "react-router-dom";
-import RestaurantDetails from "./restaurantDetail";
+import RestaurantDetails from "./RestaurantDetails";
 
 const About=(props)=>{
 
@@ -10,6 +10,7 @@ const About=(props)=>{
 
     return (
         <div>
+            
             <RestaurantDetails id={paramValue} isAbout={true} />
         </div>
     )

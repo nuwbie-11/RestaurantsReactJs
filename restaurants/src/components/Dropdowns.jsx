@@ -1,48 +1,50 @@
 import React from "react";
-import { Link,useNavigate,useLocation } from 'react-router-dom';
-
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Dropdowns = (props) => {
-  const [value, setValue] = React.useState("default");
+  const [value, setValue] = React.useState("");
   const location = useLocation();
   const navigate = useNavigate();
+  const urlSearchParams = new URLSearchParams(location.search);
 
   const handleChanges = (event) => {
     setValue(event.target.value);
     // console.log(value);
   };
 
-  // const queryParam = urlSearchParams.get(props.from);
-  
-  const pushParams=()=>{
-    const urlSearchParams = new URLSearchParams(location.search);
+  const pushParams = () => {
+    let cateValue = urlSearchParams.get("cate");
+    let priceValue = urlSearchParams.get("price");
+    let statsValue = urlSearchParams.get("isOpen");
 
-    urlSearchParams.append('cate',props.options[value]);
-    urlSearchParams.append('isOpen',false);
-    urlSearchParams.append('price','$');
-
-    console.log(urlSearchParams);
     
-    // navigate({
-    //   pathname:"/",
-    //   search :
-    // }
-    // )
+    switch (props.from) {
+      case "cate":
+        cateValue = props.options[value];
+        break;
+        case "price":
+          priceValue = props.options[value];
+        break;
 
-  }
-  
+      default:
+        break;
+    }
+      urlSearchParams.set("cate", cateValue);
+      urlSearchParams.set("isOpen", statsValue);
+      urlSearchParams.set("price", priceValue);
+    navigate({
+      pathname: "/",
+      search: `?${urlSearchParams.toString()}`,
+    });
+  };
 
-  React.useEffect(()=>{
-    // console.log(value);
-    // navigate({
-    //   pathname: "/",
-    //   search: `?${props.from}=${props.options[value]}`,
-    // })
+  React.useEffect(() => {
+    urlSearchParams.set("price", "undefined");
+  },[]);
 
+  React.useEffect(() => {
     pushParams();
-  },[value]);
-
-
+  }, [value]);
 
   return (
     <div className="dropdown-wrapper border-b-2 border-sky-300">
@@ -53,13 +55,11 @@ const Dropdowns = (props) => {
         value={value}
         onChange={handleChanges}
       >
-        <option value="default" disabled>
+        <option value="" disabled>
           {props.default["default"]}
         </option>
         {Object.keys(props.options).map((key) => (
-          <option value={key}>
-            {props.options[key]}
-          </option>
+          <option value={key}>{props.options[key]}</option>
         ))}
       </select>
     </div>

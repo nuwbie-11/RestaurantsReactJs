@@ -1,12 +1,38 @@
 import React from "react";
-
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Checkbox = (props) => {
-    const [isChecked,setChecks] = React.useState(false);
+    const [isChecked,setChecks] = React.useState(true);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const urlSearchParams = new URLSearchParams(location.search);
 
     const handleChecks = () => {
         setChecks(!isChecked);
     };
+
+    const pushParams = () => {
+      let cateValue = urlSearchParams.get("cate");
+      let priceValue = urlSearchParams.get("price");
+      // let statsValue = urlSearchParams.get("isOpen");
+  
+      
+      urlSearchParams.set("cate", cateValue);
+      urlSearchParams.set("isOpen", isChecked);
+      urlSearchParams.set("price", priceValue);
+      navigate({
+        pathname: "/",
+        search: `?${urlSearchParams.toString()}`,
+      });
+    };
+
+    React.useEffect(()=>{
+      pushParams()
+    },[isChecked])
+
+    React.useEffect(()=>{
+      urlSearchParams.set("isOpen", null);
+    },[])
 
     return (
         <div className=" py-2 checkbox-wrapper border-b-2 border-sky-300">
