@@ -5,9 +5,13 @@ import RestaurantList from "./RestaurantsList";
 import Categories from "./Categories";
 
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 
-import Dropdowns from "../components/Dropdowns";
+
+
+import Dropdowns from "../components/Dropdowns";  
 import Checkbox from "../components/Checkboxes";
 
 class Main extends Component {
@@ -101,7 +105,16 @@ class Main extends Component {
         return (
             <div className="">
             <div className="md:container md:mx-auto px-8 py-8">
-              <h1 className="font-light text-7xl md:mx-auto">Restaurants</h1>
+              <div className="flex md:mx-auto items-end gap-x-2">
+                <h1 className="font-light text-7xl ">Restaurants</h1>
+                <div className="github ">
+                  <a href="https://github.com/nuwbie-11/RestaurantsRectJs" target="_blank" className="flex items-end gap-x-2 text-dark hover:text-[#e8eaea] hover:scale-125 transition duration-150 ease-out hover:ease-in">
+                    <FontAwesomeIcon icon={faGithub} />
+                    <p className="text-xs italic" >about Project</p>
+                  </a>
+                  </div>
+
+              </div>
               <br />
               <p className="w-3/5">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis
@@ -119,7 +132,7 @@ class Main extends Component {
             </div>
               {/* {console.log(this.state.params)} */}
               <RestaurantList data={this.state.data} customParam={this.state.params} />
-              </div>
+            </div>
         )
     }
 
@@ -127,9 +140,11 @@ class Main extends Component {
         
         return (
             <div>
+                
                 {
                     this.state.isFiltered ? (<p>Hello</p>) : this.mainPage()
                 }
+
             </div>
         )
     }
