@@ -31,7 +31,7 @@ Built with :
 
 ### Vercel
 - In this app i also use `vercel` to provide deploys to vercel itself
-- to insall please read the [dicumentation](https://vercel.com/guides/deploying-react-with-vercel)
+- to insall please read the [documentation](https://vercel.com/guides/deploying-react-with-vercel)
 - or you can type `npm i -g vercel`
 - then go to terminal and go to project folder then type `vercel`
 
