@@ -1,8 +1,12 @@
 # RestaurantsRectJs
 
+[Final Deploy](https://restaurants-nuwbie-11.vercel.app/?price=undefined&cate=undefined&isOpen=null)
+
 Built with :
 - Node version V18.14.1
 - React version 18.2.0
+- Vercel for Deploy
+
 
 ## Used Api
 
@@ -22,9 +26,14 @@ Built with :
 
 ### Font Awesome
 - in this app i used `fontawesome` to provide icons
-- to install please read the [document](https://fontawesome.com/v5/docs/web/use-with/react)
+- to install please read the [documention](https://fontawesome.com/v5/docs/web/use-with/react)
 - Install extras for brands like github. And to doing it you can do `npm install --save @fortawesome/free-brands-svg-icons`
 
+### Vercel
+- In this app i also use `vercel` to provide deploys to vercel itself
+- to insall please read the [dicumentation](https://vercel.com/guides/deploying-react-with-vercel)
+- or you can type `npm i -g vercel`
+- then go to terminal and go to project folder then type `vercel`
 
 ## Main Features 
 
