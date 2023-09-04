@@ -16,7 +16,10 @@
 
 ## Used Library
 
+### Font Awesome
 - in this app i used `fontawesome` to provide icons
+- to install please read the [document](https://fontawesome.com/v5/docs/web/use-with/react)
+- Install extras for brands like github. And to doing it you can do `npm install --save @fortawesome/free-brands-svg-icons`
 
 
 ## Main Features 
