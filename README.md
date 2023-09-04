@@ -6,7 +6,7 @@
 
 ## How to start
 
-- Make Sure you already install nodeJs
+- Make Sure you already install [Node.Js](https://nodejs.org/en)
 - After Node.Js installed you can run `npx create-react-app <app-name>`
 - Wait a momment till your app ready
 - type and run `cd/app-name` then `npm start` to run the app
