@@ -1,5 +1,9 @@
 # RestaurantsRectJs
 
+Built with :
+- Node version V18.14.1
+- React version 18.2.0
+
 ## Used Api
 
 - API that used on this projects are provided by [dicoding](https://restaurant-api.dicoding.dev/)
