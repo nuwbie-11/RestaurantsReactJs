@@ -129,7 +129,7 @@ class RestaurantDetails extends Component {
       <div>
         {this.state.details ? (
           <div className="md:container md:mx-auto p-8">
-            <div className="header-section flex items-center gap-x-8">
+            <div className="header-section flex items-center gap-x-8 ">
               <Link
                 to={{
                   pathname: "/",
@@ -138,22 +138,24 @@ class RestaurantDetails extends Component {
               >
                 <FontAwesomeIcon icon={faArrowLeft} />
               </Link>
-              <h1 className="text-5xl font-semibold">
-                {this.state.details.name}
-              </h1>
+              <div className="md:flex items-end gap-x-2">
+                <h1 className="font-bold lg:text-5xl text-3xl">
+                  {this.state.details.name}
+                </h1>
 
-              <p
-                className={`px-5 py-1 rounded-full text-xs mt-2 text-white ${
-                  this.state.details.rating < 3
-                    ? "bg-red-400"
-                    : "bg-yellow-400"
-                } `}
-              >
-                <span>&#9733; </span>{this.state.details.rating}
-              </p>
+                
+                  <span 
+                  className={`px-5 py-1 rounded-full text-xs text-white ${
+                    this.state.details.rating < 3
+                      ? "bg-red-400"
+                      : "bg-yellow-400"
+                  } `}
+                  >&#9733; {this.state.details.rating} </span>
+
+              </div>
             </div>
 
-            <div className="detail-section pt-8 flex justify-between py-3">
+            <div className="detail-section pt-4 flex justify-between py-3">
               <div>
                 <p className="description">{this.state.details["description"]}</p>
                 <div className="tagged-in flex gap-x-2 pt-3">
@@ -168,7 +170,7 @@ class RestaurantDetails extends Component {
               </div>
 
               <img
-                className="w-72 h-52 rounded"
+                className="w-72 h-52 rounded hidden lg:block"
                 src={
                   "https://restaurant-api.dicoding.dev/images/medium/" +
                   this.state.details["pictureId"]

@@ -49,7 +49,7 @@ const Dropdowns = (props) => {
   return (
     <div className="dropdown-wrapper border-b-2 border-sky-300">
       <select
-        className="border-0"
+        className="border-0 w-full"
         name="prices"
         id={props.id}
         value={value}

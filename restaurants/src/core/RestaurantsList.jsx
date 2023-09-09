@@ -22,10 +22,10 @@ class RestaurantList extends Component {
 
   render() {
     return (
-      <div className="container restaurant-sections px-8">
+      <div className="md:container restaurant-sections px-8 mx-auto">
         <h1 className="text-5xl pb-8">All restaurants</h1>
         {this.props.data ? (
-          <div className="grid grid-cols-4 justify-items-center">
+          <div className=" grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center content-between">
             {this.props.data.map((item, index) => (
               //   <li key={index}>{item}</li>
 
