@@ -19,9 +19,15 @@ class RestaurantDetails extends Component {
 
   componentDidMount() {
     setTimeout(() => {
+      // console.log(this.props.customParam)
       // Do not run Custom details outside didmount. so the prices and status doesnt change. except from page load
-      this.getCustomPrices();
-      this.getCustomStatus();
+      if (this.props.customParam['cate'] === '') {
+        console.log('this func Run')
+        this.getCustomPrices();
+        this.getCustomStatus();
+        
+      }
+      
     }, 5);
 
     this.timerId = setTimeout(() => {

@@ -16,7 +16,6 @@ class Main extends Component {
 
     this.state = {
       param: this.props.params,
-      isFiltered: false,
       data: null,
       priceOptions: {
         1: "$",

@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Main from './core/Main';
-import About from './core/About';
-import Loader from './Loader';
+import {routes} from './utils/data'
 
 export default function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Loader />} />
-        <Route path="/About" element={<About />} />
+        {
+          routes.map((route)=>(
+            <Route path={route.path} element={route.loader} />
+          ))
+        }
       </Routes>
     </div>
   );

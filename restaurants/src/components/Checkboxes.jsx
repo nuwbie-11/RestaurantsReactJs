@@ -31,7 +31,8 @@ const Checkbox = (props) => {
     },[isChecked])
 
     React.useEffect(()=>{
-      urlSearchParams.set("isOpen", null);
+      // urlSearchParams.set("isOpen", isChecked);
+      pushParams()
     },[])
 
     return (
