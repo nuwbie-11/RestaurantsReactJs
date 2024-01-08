@@ -1,4 +1,4 @@
-# RestaurantsRectJs
+# RestaurantsReactJs
 
 [Final Deploy](https://restaurants-nuwbie-11.vercel.app/?price=undefined&cate=undefined&isOpen=null)
 
